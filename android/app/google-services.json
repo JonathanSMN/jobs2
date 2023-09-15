@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "515707400693",
+    "project_id": "jobs-b3e54",
+    "storage_bucket": "jobs-b3e54.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:515707400693:android:25610d755554db478c30bc",
+        "android_client_info": {
+          "package_name": "com.nocodeui.adminpanel01"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "515707400693-b4db1rbe89nif91m5v339tvgnvt0om5h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCX8BWXhWXgoY_DQPNt5Am0KXUwiITcL-A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "515707400693-b4db1rbe89nif91m5v339tvgnvt0om5h.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "515707400693-09o16r4nvsi9hnr5ujvalh13s7ua70sr.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.nocodeui.adminpanel01"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
