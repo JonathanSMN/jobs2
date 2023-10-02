@@ -70,6 +70,8 @@ class _VagaAplicWidgetState extends State<VagaAplicWidget>
           !anim.applyInitialState),
       this,
     );
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

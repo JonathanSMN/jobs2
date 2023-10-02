@@ -60,6 +60,8 @@ class _EsqueciSenhaWidgetState extends State<EsqueciSenhaWidget>
           !anim.applyInitialState),
       this,
     );
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -151,7 +153,7 @@ class _EsqueciSenhaWidgetState extends State<EsqueciSenhaWidget>
                                             size: 24.0,
                                           ),
                                           onPressed: () async {
-                                            Navigator.pop(context);
+                                            context.pop();
                                           },
                                         ),
                                       ),

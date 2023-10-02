@@ -28,6 +28,8 @@ class _VagasWidgetState extends State<VagasWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => VagasModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -42,7 +44,9 @@ class _VagasWidgetState extends State<VagasWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+      onTap: () => _model.unfocusNode.canRequestFocus
+          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+          : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -107,10 +111,13 @@ class _VagasWidgetState extends State<VagasWidget> {
                                           context: context,
                                           builder: (context) {
                                             return GestureDetector(
-                                              onTap: () =>
-                                                  FocusScope.of(context)
+                                              onTap: () => _model.unfocusNode
+                                                      .canRequestFocus
+                                                  ? FocusScope.of(context)
                                                       .requestFocus(
-                                                          _model.unfocusNode),
+                                                          _model.unfocusNode)
+                                                  : FocusScope.of(context)
+                                                      .unfocus(),
                                               child: Padding(
                                                 padding:
                                                     MediaQuery.viewInsetsOf(
@@ -122,7 +129,7 @@ class _VagasWidgetState extends State<VagasWidget> {
                                               ),
                                             );
                                           },
-                                        ).then((value) => setState(() {}));
+                                        ).then((value) => safeSetState(() {}));
                                       },
                                       text: 'Cadastrar Vaga',
                                       icon: Icon(
@@ -175,9 +182,13 @@ class _VagasWidgetState extends State<VagasWidget> {
                                         context: context,
                                         builder: (context) {
                                           return GestureDetector(
-                                            onTap: () => FocusScope.of(context)
-                                                .requestFocus(
-                                                    _model.unfocusNode),
+                                            onTap: () => _model
+                                                    .unfocusNode.canRequestFocus
+                                                ? FocusScope.of(context)
+                                                    .requestFocus(
+                                                        _model.unfocusNode)
+                                                : FocusScope.of(context)
+                                                    .unfocus(),
                                             child: Padding(
                                               padding: MediaQuery.viewInsetsOf(
                                                   context),
@@ -188,7 +199,7 @@ class _VagasWidgetState extends State<VagasWidget> {
                                             ),
                                           );
                                         },
-                                      ).then((value) => setState(() {}));
+                                      ).then((value) => safeSetState(() {}));
                                     },
                                     text: 'Cadastrar Vaga',
                                     icon: Icon(
@@ -361,12 +372,17 @@ class _VagasWidgetState extends State<VagasWidget> {
                                                           context: context,
                                                           builder: (context) {
                                                             return GestureDetector(
-                                                              onTap: () => FocusScope
-                                                                      .of(
+                                                              onTap: () => _model
+                                                                      .unfocusNode
+                                                                      .canRequestFocus
+                                                                  ? FocusScope.of(
                                                                           context)
-                                                                  .requestFocus(
-                                                                      _model
-                                                                          .unfocusNode),
+                                                                      .requestFocus(
+                                                                          _model
+                                                                              .unfocusNode)
+                                                                  : FocusScope.of(
+                                                                          context)
+                                                                      .unfocus(),
                                                               child: Padding(
                                                                 padding: MediaQuery
                                                                     .viewInsetsOf(
@@ -386,7 +402,8 @@ class _VagasWidgetState extends State<VagasWidget> {
                                                             );
                                                           },
                                                         ).then((value) =>
-                                                            setState(() {}));
+                                                            safeSetState(
+                                                                () {}));
                                                       },
                                                       child: Row(
                                                         mainAxisSize:

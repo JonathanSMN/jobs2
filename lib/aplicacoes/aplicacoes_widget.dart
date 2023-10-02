@@ -26,6 +26,8 @@ class _AplicacoesWidgetState extends State<AplicacoesWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => AplicacoesModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -151,8 +153,8 @@ class _AplicacoesWidgetState extends State<AplicacoesWidget> {
                                                     ),
                                                   );
                                                 },
-                                              ).then(
-                                                  (value) => setState(() {}));
+                                              ).then((value) =>
+                                                  safeSetState(() {}));
                                             },
                                             child: Container(
                                               width: double.infinity,
@@ -694,8 +696,8 @@ class _AplicacoesWidgetState extends State<AplicacoesWidget> {
                                                     ),
                                                   );
                                                 },
-                                              ).then(
-                                                  (value) => setState(() {}));
+                                              ).then((value) =>
+                                                  safeSetState(() {}));
                                             },
                                             child: Container(
                                               width: double.infinity,
@@ -1226,8 +1228,8 @@ class _AplicacoesWidgetState extends State<AplicacoesWidget> {
                                                     ),
                                                   );
                                                 },
-                                              ).then(
-                                                  (value) => setState(() {}));
+                                              ).then((value) =>
+                                                  safeSetState(() {}));
                                             },
                                             child: Container(
                                               width: double.infinity,
@@ -1760,8 +1762,8 @@ class _AplicacoesWidgetState extends State<AplicacoesWidget> {
                                                     ),
                                                   );
                                                 },
-                                              ).then(
-                                                  (value) => setState(() {}));
+                                              ).then((value) =>
+                                                  safeSetState(() {}));
                                             },
                                             child: Container(
                                               width: double.infinity,

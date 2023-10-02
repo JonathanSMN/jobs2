@@ -30,6 +30,8 @@ class _UsuarioDetalheWidgetState extends State<UsuarioDetalheWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => UsuarioDetalheModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -117,7 +119,7 @@ class _UsuarioDetalheWidgetState extends State<UsuarioDetalheWidget> {
                                       size: 24.0,
                                     ),
                                     onPressed: () async {
-                                      Navigator.pop(context);
+                                      context.pop();
                                     },
                                   ),
                                 ],
